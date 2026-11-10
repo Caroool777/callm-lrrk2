@@ -1,0 +1,50 @@
+{
+    "task_name": "zaleplon_mpo",
+    "task_description": "Zaleplon 多属性优化 (Multi-Property Objective)",
+    
+    "seed": 42,
+    "max_oracle_calls": 10000,
+    "pop_size": 100,
+    "crossover_rate": 0.8,
+    "mutation_rate": 0.5,
+    
+    "initial_smiles_file": "../250k_rndm_zinc_drugs_clean_3.csv",
+    
+    "biot5_num_beams": 5,
+    "biot5_num_return_sequences": 3,
+    "biot5_temperature": 0.8,
+    "biot5_do_sample": true,
+    "biot5_elite_count": 10,
+    
+    "belief_capacity": 100,
+    "scaffold_threshold": 0.3,
+    "min_scaffold_samples": 2,
+    
+    "use_scaffold_constraint": true,
+    
+    "objectives": {
+        "similarity": {
+            "description": "与 Zaleplon 的 Tanimoto 相似度 (ECFP4)",
+            "weight": 1.0,
+            "target": "maximize"
+        },
+        "formula": {
+            "description": "分子式匹配 (目标: C19H17N3O2)",
+            "weight": 1.0,
+            "target": "maximize"
+        }
+    },
+    
+    "output_dir": "../MultiResult/zaleplon_mpo_results",
+    
+    "comments": [
+        "Zaleplon MPO 任务来自 GuacaMol Benchmark",
+        "目标分子: Zaleplon (安眠药)",
+        "SMILES: O=C(C)N(CC)C1=CC=CC(C2=CC=NC3=C(C=NN23)C#N)=C1",
+        "目标分子式: C19H17N3O2",
+        "优化目标: 生成与 Zaleplon 相似但具有目标分子式的分子"
+    ],
+    
+    "zaleplon_smiles": "O=C(C)N(CC)C1=CC=CC(C2=CC=NC3=C(C=NN23)C#N)=C1",
+    "target_formula": "C19H17N3O2"
+}

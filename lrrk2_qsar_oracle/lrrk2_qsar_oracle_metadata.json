@@ -1,0 +1,89 @@
+{
+  "model_name": "LightGBM LGBMRegressor",
+  "feature_type": "Morgan fingerprint",
+  "target": "pIC50",
+  "ic50_unit": "nM",
+  "pIC50_formula": "pIC50 = 9 - log10(IC50_nM)",
+  "morgan_radius": 2,
+  "morgan_nBits": 2048,
+  "training_sample_count": 4927,
+  "scaffold_count": 1877,
+  "pIC50_min": 3.5316526695878423,
+  "pIC50_max": 12.0,
+  "pIC50_mean": 7.485318334171842,
+  "pIC50_median": 7.346787486224656,
+  "oracle_version": "1.1.2",
+  "activity_score_formula": "activity_score = clip((pred_pIC50 - 6.0) / 3.0, 0, 1)",
+  "callm_objective": "qsar_activity_score_ad_penalized",
+  "ad_penalized_score_rules": {
+    "high": "raw activity_score",
+    "medium": "min(activity_score * 0.85, 0.70)",
+    "low": "min(activity_score * 0.55, 0.45)",
+    "very_low": "min(activity_score * 0.30, 0.25)",
+    "invalid": "0.0"
+  },
+  "structure_penalty_rules": {
+    "is_multifragment": "score = min(score * 0.2, 0.10)",
+    "contains_metal": "score = min(score * 0.2, 0.10)",
+    "has_abnormal_charge": "score = min(score * 0.5, 0.20)",
+    "standalone_charged_ion": "flagged as abnormal charge"
+  },
+  "applicability_domain_thresholds": {
+    "high": "nearest_train_similarity >= 0.60",
+    "medium": "0.40 <= nearest_train_similarity < 0.60",
+    "low": "0.30 <= nearest_train_similarity < 0.40",
+    "very_low": "nearest_train_similarity < 0.30"
+  },
+  "training_date": "2026-06-29T10:20:31.966350+00:00",
+  "model_parameters": {
+    "n_estimators": 500,
+    "learning_rate": 0.03,
+    "num_leaves": 31,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "random_state": 42,
+    "n_jobs": -1,
+    "verbosity": -1
+  },
+  "software_versions": {
+    "pandas": "3.0.3",
+    "numpy": "2.4.6",
+    "rdkit": "2026.03.3",
+    "lightgbm": "4.6.0",
+    "sklearn": "1.9.0",
+    "python": "3.11.5"
+  },
+  "baseline_reference": {
+    "split": "scaffold",
+    "feature_set": "morgan",
+    "model": "LightGBM",
+    "test_RMSE": 0.4562,
+    "test_R2": 0.6824,
+    "test_Spearman_rho": 0.7713,
+    "test_Top_10_percent_recall": 0.58
+  },
+  "bugfix_release": {
+    "version": "1.1.1",
+    "model_weights_changed": false,
+    "changes": [
+      "score_dataframe assigns oracle output columns by row position to avoid pandas index-alignment bugs with filtered, shuffled, sliced, or duplicate-index DataFrames.",
+      "score_dataframe returns a schema-complete empty scored table for empty input DataFrames.",
+      "empty and all-invalid candidate batches do not require loading model artifacts.",
+      "load_oracle configures LightGBM inference with n_jobs=1 for predictable CALLM resource usage without changing predictions.",
+      "score_callm_lrrk2_candidates.py sorts by qsar_activity_score_ad_penalized by default, adds callm_lrrk2_rank, preserves callm_input_row, and supports --no_sort for order-preserving integration."
+    ]
+  },
+  "code_patch_notes": [
+    "score_dataframe assigns oracle output columns by row position to avoid pandas index-alignment bugs with filtered, shuffled, sliced, or duplicate-index DataFrames.",
+    "score_dataframe returns a schema-complete empty scored table for empty input DataFrames.",
+    "empty and all-invalid candidate batches do not require loading model artifacts.",
+    "load_oracle configures LightGBM inference with n_jobs=1 for predictable CALLM resource usage without changing predictions.",
+    "score_callm_lrrk2_candidates.py sorts by qsar_activity_score_ad_penalized by default, adds callm_lrrk2_rank, preserves callm_input_row, and supports --no_sort for order-preserving integration."
+  ],
+  "callm_ranking": {
+    "default_rank_by": "qsar_activity_score_ad_penalized",
+    "rank_column": "callm_lrrk2_rank",
+    "input_row_trace_column": "callm_input_row",
+    "disable_sort_flag": "--no_sort"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "_comment": "Deco Hop 任务特定配置 (继承自 config.json)",
+  "_note": "Deco Hop (装饰跳跃) - 在保持分子骨架的同时优化侧链/取代基",
+  
+  "scaffold_threshold": 0.7,
+  "similarity_threshold": 0.85,
+  "similarity_penalty": 0.05,
+  "boredom_threshold": 25,
+  "mutation_rate": 0.3,
+  "output_image_dir": "../SingleResult/deco_hop_top_molecules",
+  
+  "_comment_filter": "=== 化学合理性过滤器配置 ===",
+  "_comment_filter_desc": "过滤含有 O-Cl, O-Br, N-Cl, 过氧化物等不稳定结构的分子",
+  "use_substructure_constraint": true,
+  "required_substructure": "[#7]-c1n[c;h1]nc2[c;h1]c(-[#8])[c;h0][c;h1]c12",
+  "use_scaffold_constraint": false,
+  "candidate_hard_filter": true,
+  "template_scaffold_preserving_operators": true,
+  "editable_sites": ["n_decoration", "ring_substituent", "o_tail"],
+  "banned_decoration_smarts": [
+    "CS([#6])(=O)=O",
+    "[#7]-c1ccc2ncsc2c1"
+  ],
+  "initial_population": "locally constructed valid template replacements",
+  "reference_molecule_queried": false,
+  "use_chemical_filter": false
+}

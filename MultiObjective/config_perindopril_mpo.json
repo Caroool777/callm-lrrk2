@@ -1,0 +1,51 @@
+{
+    "task_name": "perindopril_mpo",
+    "task_description": "Perindopril 多属性优化 (Multi-Property Objective)",
+    
+    "seed": 42,
+    "max_oracle_calls": 10000,
+    "pop_size": 100,
+    "crossover_rate": 0.8,
+    "mutation_rate": 0.5,
+    
+    "initial_smiles_file": "../250k_rndm_zinc_drugs_clean_3.csv",
+    
+    "biot5_num_beams": 5,
+    "biot5_num_return_sequences": 3,
+    "biot5_temperature": 0.8,
+    "biot5_do_sample": true,
+    "biot5_elite_count": 10,
+    
+    "belief_capacity": 100,
+    "scaffold_threshold": 0.3,
+    "min_scaffold_samples": 2,
+    
+    "use_scaffold_constraint": true,
+    
+    "objectives": {
+        "similarity": {
+            "description": "与 Perindopril 的 Tanimoto 相似度 (ECFP4)",
+            "weight": 1.0,
+            "target": "maximize"
+        },
+        "arom_rings": {
+            "description": "芳香环数量 (目标: 2 个芳香环)",
+            "weight": 1.0,
+            "target": "gaussian",
+            "target_value": 2
+        }
+    },
+    
+    "output_dir": "../MultiResult/perindopril_mpo_results",
+    
+    "comments": [
+        "Perindopril MPO 任务来自 TDC Benchmark",
+        "目标分子: Perindopril (ACE 抑制剂，降压药)",
+        "SMILES: CCC[C@@H](C(=O)OCC)N[C@@H](C)C(=O)N1[C@H]2CCCC[C@H]2C[C@H]1C(=O)O",
+        "分子式: C19H32N2O5",
+        "优化目标: 生成与 Perindopril 相似且具有适当芳香环数量的分子"
+    ],
+    
+    "perindopril_smiles": "CCC[C@@H](C(=O)OCC)N[C@@H](C)C(=O)N1[C@H]2CCCC[C@H]2C[C@H]1C(=O)O",
+    "target_arom_rings": 2
+}

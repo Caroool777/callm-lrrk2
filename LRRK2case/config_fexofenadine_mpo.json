@@ -1,0 +1,20 @@
+{
+    "task_name": "fexofenadine_mpo",
+    "seed": 42,
+    "max_oracle_calls": 10000,
+    "population_size": 100,
+    "offspring_size": 200,
+    "mutation_rate": 0.05,
+    "crossover_rate": 0.8,
+    "elite_ratio": 0.2,
+    "tournament_size": 5,
+    "initial_population_file": "../250k_rndm_zinc_drugs_clean_3.csv",
+    "initial_pop_sample_size": 500,
+    "output_dir": "../MultiResult/fexofenadine_mpo_results",
+    "target_tpsa": 90.0,
+    "target_logp": 4.0,
+    "sigma_tpsa": 2.0,
+    "sigma_logp": 2.0,
+    "similarity_threshold": 0.8,
+    "convergence_log_interval": 100
+}

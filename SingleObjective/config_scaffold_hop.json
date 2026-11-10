@@ -1,0 +1,22 @@
+{
+  "_comment": "Scaffold Hop 任务特定配置 (继承自 config.json)",
+  "_note": "Scaffold Hop (骨架跳跃) - 寻找具有不同骨架但保持相似药理活性的分子",
+  
+  "scaffold_threshold": 0.5,
+  "similarity_threshold": 0.7,
+  "similarity_penalty": 0.05,
+  "boredom_threshold": 20,
+  "mutation_rate": 0.5,
+  "output_image_dir": "../SingleResult/scaffold_hop_top_molecules",
+  
+  "_comment_substructure": "=== 子结构约束模式 (替代骨架约束) ===",
+  "_comment_substructure_desc": "Use the exact positive decoration SMARTS from the TDC scaffold_hop oracle",
+  "_comment_substructure_reason": "The objective separately rewards this decoration and absence of the reference quinazoline scaffold",
+  "use_substructure_constraint": true,
+  "required_substructure": "[#6]-[#6]-[#6]-[#8]-[#6]~[#6]~[#6]~[#6]~[#6]-[#7]-c1ccc2ncsc2c1",
+  "use_scaffold_constraint": false,
+  
+  "_comment_filter": "=== 化学合理性过滤器配置 ===",
+  "_comment_filter_desc": "过滤含有 O-Cl, O-Br, N-Cl, 过氧化物等不稳定结构的分子",
+  "use_chemical_filter": false
+}

@@ -1,0 +1,16 @@
+task: lrrk2_wt_lead_repair_mpo
+generator: QizhiPei/biot5-base-text2mol
+random_seeds: [41, 42, 43, 44, 45]
+target_unique_valid_new_stage2: 20000
+stage1_handoff_count: 50
+objectives:
+  - qsar_activity_ad_penalized
+  - bbb_cns
+  - logp_window
+  - tpsa_window
+  - regularizer
+regularizer_type: sa
+selection: pareto_with_existing_balanced_tiebreakers
+exclude_original_stage1_seeds: true
+exclude_unchanged_stage2_parents: true
+checkpoint_every_generations: 1

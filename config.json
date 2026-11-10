@@ -1,0 +1,16 @@
+{
+  "initial_smiles_file": "250k_rndm_zinc_drugs_clean_3.csv",
+  "generations": 10,
+  "pop_size": 100,
+  "crossover_rate": 0.8,
+  "offspring_per_crossover": 2,
+  "llm_backend": "chatgpt",
+  "llm_provider": "openai",
+  "llm_num_beams": 5,
+  "llm_num_return_sequences": 3,
+  "llm_temperature": 0.8,
+  "llm_do_sample": true,
+  "llm_elite_count": 10,
+  "openai_model": "gpt-4o-mini",
+  "openai_timeout_seconds": 60
+}

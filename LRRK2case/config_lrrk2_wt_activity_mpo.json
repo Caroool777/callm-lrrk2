@@ -1,0 +1,43 @@
+{
+  "task_name": "lrrk2_wt_activity_mpo",
+  "task_description": "LRRK2 wild-type activity multi-objective optimization",
+  "llm_backend": "biot5",
+  "biot5_model_name": "QizhiPei/biot5-base-text2mol",
+  "seed": 42,
+  "max_oracle_calls": 5000,
+  "pop_size": 120,
+  "offspring_fraction": 0.8,
+  "crossover_fraction": 0.3333333333333333,
+  "mutation_rate": 0.5,
+  "initial_smiles_file": "../250k_rndm_zinc_drugs_clean_3.csv",
+  "biot5_num_beams": 5,
+  "biot5_num_return_sequences": 3,
+  "biot5_temperature": 0.8,
+  "biot5_do_sample": true,
+  "biot5_elite_count": 10,
+  "belief_capacity": 120,
+  "scaffold_threshold": 0.25,
+  "min_scaffold_samples": 2,
+  "use_scaffold_constraint": false,
+  "output_dir": "../MultiResult/lrrk2_wt_activity_mpo_results",
+  "export_selected_sdf": true,
+  "selected_sdf_top_k": 20,
+  "selected_sdf_generate_3d": true,
+  "selected_sdf_filename": "lrrk2_wt_activity_selected.sdf",
+  "export_selected_sdf_individual_files": false,
+  "selected_sdf_individual_dir": "selected_sdf_files",
+  "qsar_oracle_dir": "lrrk2_qsar_oracle",
+  "qsar_oracle_score_column": "qsar_activity_score_ad_penalized",
+  "qsar_oracle_raw_column": "pred_pIC50",
+  "regularizer_type": "qed",
+  "objectives": {
+    "lrrk2_wt_activity": {
+      "description": "AD-aware LRRK2 QSAR activity score for CALLM optimization",
+      "target": "maximize"
+    },
+    "regularizer": {
+      "description": "Weak QED-like regularizer",
+      "target": "maximize"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "_comment": "GSK3B 任务特定配置 (继承自 config.json)",
+  "_note": "GSK3B (糖原合成酶激酶-3β) 抑制剂优化",
+  
+  "scaffold_threshold": 0.5,
+  "output_image_dir": "../SingleResult/gsk3b_top_molecules"
+}

@@ -1,0 +1,83 @@
+{
+  "task_name": "lrrk2_wt_lead_repair_mpo",
+  "task_description": "LRRK2 wild-type lead repair formal run with stricter unsaturated scoring",
+  "llm_backend": "biot5",
+  "biot5_model_name": "QizhiPei/biot5-base-text2mol",
+  "seed": 45,
+  "max_oracle_calls": 5000,
+  "pop_size": 120,
+  "belief_capacity": 96,
+  "biot5_elite_count": 10,
+  "mutation_rate": 0.45,
+  "stage1_seed_file": "../MultiResult/lrrk2_wt_activity_mpo_results/lrrk2_wt_activity_mpo_all_discovered_canonical.csv",
+  "stage1_seed_top_k": 24,
+  "stage1_seed_sort_by": "aggregated_score",
+  "require_stage1_seed_file": true,
+  "parent_lead_smiles": "C=Cc1cc2c(cc1-c1cncc(C(N)=O)c1F)CN(C)C2=C",
+  "use_scaffold_constraint": true,
+  "scaffold_threshold": 0.25,
+  "min_scaffold_samples": 1,
+  "regularizer_type": "qed",
+  "logp_window": {
+    "lower": 2.0,
+    "upper": 3.1,
+    "sigma": 0.4
+  },
+  "tpsa_window": {
+    "lower": 25.0,
+    "upper": 55.0,
+    "sigma": 8.0
+  },
+  "output_dir": "../MultiResult/lrrk2_wt_lead_repair_formal_strict_seed45",
+  "selected_sdf_top_k": 20,
+  "selected_sdf_filename": "lrrk2_wt_lead_repair_formal_strict_selected.sdf",
+  "objective_names": [
+    "qsar_activity_ad_penalized",
+    "bbb_cns",
+    "logp_window",
+    "tpsa_window"
+  ],
+  "objective_definition": {
+    "qsar_activity_ad_penalized": "CALLM LRRK2 activity objective from the QSAR oracle; AD and structure penalties applied.",
+    "bbb_cns": "CNS/BBB-likeness objective.",
+    "logp_window": "Explicit logP window objective.",
+    "tpsa_window": "Explicit TPSA window objective."
+  },
+  "raw_pic50_tiebreaker_min": 6.0,
+  "raw_pic50_tiebreaker_max": 11.0,
+  "initial_population_strategy": "random_parent_lead_mutation",
+  "initial_parent_lead_count": 120,
+  "initial_mutation_rate": 1.0,
+  "offspring_fraction": 0.75,
+  "crossover_fraction": 0.3333333333333333,
+  "crossover_min_atom_count": 6,
+  "crossover_max_atom_count": 70,
+  "crossover_max_ring_size": 8,
+  "scaffold_constraint_mode": "tag",
+  "structure_filter_enabled": true,
+  "structure_filter_apply_oracle_penalty": true,
+  "structure_filter_penalty_factor": 0.0,
+  "structure_filter_block_flags": [
+    "N-F_substitution",
+    "N-O_substitution",
+    "explicit_SH_valence",
+    "sulfur_multiple_bond",
+    "radical",
+    "unusual_elements:H"
+  ],
+  "structure_filter_block_prefixes": [
+    "hetero_halogen_bond:",
+    "hetero_hetero_bond:"
+  ],
+  "selected_sdf_use_clean_candidates": true,
+  "clean_candidate_filename": "lrrk2_wt_lead_repair_mpo_clean_candidates.csv",
+  "flagged_candidate_filename": "lrrk2_wt_lead_repair_mpo_flagged_candidates.csv",
+  "structure_quality_filename": "lrrk2_wt_lead_repair_mpo_structure_quality.csv",
+  "clean_candidate_summary_filename": "lrrk2_wt_lead_repair_mpo_clean_candidate_summary.json",
+  "clean_candidate_min_aggregated_score": 0.85,
+  "clean_candidate_min_activity_score": 0.55,
+  "clean_candidate_min_bbb_cns": 0.8,
+  "clean_candidate_min_logp_window": 0.8,
+  "clean_candidate_min_tpsa_window": 0.8,
+  "clean_candidate_min_ad_rank": 1
+}

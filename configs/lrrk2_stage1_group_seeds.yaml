@@ -1,0 +1,29 @@
+task: lrrk2_wt_activity_mpo
+source: FIXED_USER_VERIFIED_LRRK2_SEED_SET
+random_seeds: [41, 42, 43, 44, 45]
+family_sampling: multinomial_budget_allocation_per_stream
+seeds:
+  - seed_id: LY2023-25
+    input_smiles: c1cc(OCCN2CCCCC2)cc(-c2n[nH]c3ccc(-c4ncn[nH]4)cc23)c1
+    weight: 0.23
+  - seed_id: lrrk2_m_1001
+    input_smiles: c1cc(Nc2nc(C3CC3)c3cc[nH]c3n2)[nH]n1
+    weight: 0.22
+  - seed_id: C-298
+    input_smiles: COc1ccc(CC(=O)N2CC=C(c3c[nH]c4ncccc34)CC2)cc1
+    weight: 0.15
+  - seed_id: lrrk2_m_3364
+    input_smiles: c1ccc(Oc2ccc3[nH]nc(-c4ccncc4)c3c2)cc1
+    weight: 0.13
+  - seed_id: LY2023-001
+    input_smiles: COc1cc(/C=N/Nc2nnc3c(n2)[nH]c2ccc(C)cc23)cc(OC)c1O
+    weight: 0.10
+  - seed_id: LY2025-01
+    input_smiles: COc1cccc2c(Nc3cccc(F)c3)c(C#N)cnc12
+    weight: 0.07
+  - seed_id: LY2025-02_SBP-7455
+    input_smiles: COc1ccc(Nc2ncc(C(F)(F)F)c(NC3CC3)n2)cc1OC
+    weight: 0.06
+  - seed_id: LY2025-04_FN-1501
+    input_smiles: CN1CCN(Cc2ccc(NC(=O)c3[nH]ncc3Nc3ncnc4[nH]ccc34)cc2)CC1
+    weight: 0.04

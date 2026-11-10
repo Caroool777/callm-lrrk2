@@ -1,0 +1,8 @@
+{
+  "_comment": "Mestranol Similarity 任务特定配置 (继承自 config.json)",
+  "_note": "Mestranol Similarity - 美雌醇相似性任务，目标是生成与 Mestranol 结构相似的分子",
+  "_mestranol_smiles": "COc1ccc2c(c1)CCC1C2CCC2(C)C(O)CCC12C#C",
+  
+  "scaffold_threshold": 0.5,
+  "output_image_dir": "../SingleResult/mestranol_similarity_top_molecules"
+}

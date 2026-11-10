@@ -1,0 +1,38 @@
+{
+  "seed": 42,
+  "initial_smiles_file": "../250k_rndm_zinc_drugs_clean_3.csv",
+  "max_oracle_calls": 10000,
+  "generations": 10,
+  "pop_size": 120,
+  "belief_capacity": 60,
+  "crossover_rate": 0.8,
+  "offspring_per_crossover": 2,
+  
+  "llm_backend": "biot5",
+  "llm_num_beams": 5,
+  "llm_num_return_sequences": 3,
+  "llm_temperature": 0.8,
+  "llm_do_sample": true,
+  "llm_elite_count": 10,
+  "biot5_num_beams": 5,
+  "biot5_num_return_sequences": 3,
+  "biot5_temperature": 0.8,
+  "biot5_do_sample": true,
+  "biot5_elite_count": 10,
+  
+  "_comment_cultural_algorithm": "=== 文化算法 (Cultural Algorithm) 配置 ===",
+  "scaffold_threshold": 0.5,
+  "min_scaffold_samples": 2,
+  "use_scaffold_constraint": true,
+  
+  "_comment_boredom": "=== 无聊度机制 (Boredom Mechanism) 配置 ===",
+  "_comment_boredom_desc": "防止算法过早收敛到单一骨架，促进多样性探索",
+  "boredom_threshold": 15,
+  "boredom_penalty": 0.1,
+  "boredom_decay": 0.01,
+  
+  "_comment_similarity": "=== 相似性惩罚 (Similarity Penalty) 配置 ===",
+  "_comment_similarity_desc": "惩罚与最优骨架相似的骨架，鼓励探索结构差异更大的骨架家族",
+  "similarity_threshold": 0.7,
+  "similarity_penalty": 0.05
+}

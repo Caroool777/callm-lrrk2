@@ -1,0 +1,7 @@
+{
+  "_comment": "JNK3 任务特定配置 (继承自 config.json)",
+  "_note": "JNK3 (c-Jun N-terminal kinase 3) 抑制剂优化",
+  
+  "scaffold_threshold": 0.5,
+  "output_image_dir": "../SingleResult/jnk3_top_molecules"
+}

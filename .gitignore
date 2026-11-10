@@ -1,0 +1,54 @@
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.pycache_tmp/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# Local assistant and editor state
+.codex/
+.agents/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Credentials and local overrides
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+config.local.json
+config.*.local.json
+
+# Backups, temporary files, and logs
+*.orig
+*.bak
+*.tmp
+*.swp
+*.log
+logs/
+
+# Generated experiment outputs; source data and oracle models stay visible
+/SingleResult/
+/MultiResult/
+/Resultbelief/
+/results/
+/outputs/
+/*_top_molecules/
+/*_mpo_results/
+/SingleObjective/*_top_molecules/
+/MultiObjective/*_mpo_results/
+/LRRK2case/*_mpo_results/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.coverage
+htmlcov/

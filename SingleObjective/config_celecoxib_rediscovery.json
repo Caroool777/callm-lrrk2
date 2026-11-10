@@ -1,0 +1,8 @@
+{
+  "_comment": "Celecoxib Rediscovery 任务特定配置 (继承自 config.json)",
+  "_note": "Celecoxib Rediscovery - 塞来昔布重发现任务，目标是生成与 Celecoxib 结构高度相似的分子",
+  "_celecoxib_smiles": "Cc1ccc(-c2cc(C(F)(F)F)nn2-c2ccc(S(N)(=O)=O)cc2)cc1",
+  
+  "scaffold_threshold": 0.5,
+  "output_image_dir": "../SingleResult/celecoxib_rediscovery_top_molecules"
+}

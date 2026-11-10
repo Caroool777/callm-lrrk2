@@ -1,0 +1,7 @@
+{
+  "_comment": "Valsartan SMARTS 任务特定配置 (继承自 config.json)",
+  "_note": "Valsartan SMARTS - 基于 SMARTS 模式匹配的分子优化，目标是生成包含 Valsartan 关键药效团的分子",
+  
+  "scaffold_threshold": 0.5,
+  "output_image_dir": "../SingleResult/valsartan_smarts_top_molecules"
+}

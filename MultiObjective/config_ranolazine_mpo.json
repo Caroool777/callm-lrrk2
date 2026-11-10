@@ -1,0 +1,69 @@
+{
+    "task_name": "ranolazine_mpo",
+    "task_description": "Ranolazine 多属性优化 (Multi-Property Objective) - GuacaMol 官方定义",
+    
+    "seed": 42,
+    "max_oracle_calls": 10000,
+    "pop_size": 100,
+    "crossover_rate": 0.8,
+    "mutation_rate": 0.5,
+    
+    "initial_smiles_file": "../250k_rndm_zinc_drugs_clean_3.csv",
+    
+    "biot5_num_beams": 5,
+    "biot5_num_return_sequences": 3,
+    "biot5_temperature": 0.8,
+    "biot5_do_sample": true,
+    "biot5_elite_count": 10,
+    
+    "belief_capacity": 100,
+    "scaffold_threshold": 0.3,
+    "min_scaffold_samples": 2,
+    
+    "use_scaffold_constraint": true,
+    
+    "objectives": {
+        "similarity": {
+            "description": "与 Ranolazine 的相似度 (Atom Pair, ClippedScoreModifier 0.7)",
+            "weight": 1.0,
+            "target": "clipped",
+            "threshold": 0.7
+        },
+        "logp": {
+            "description": "logP (MaxGaussian μ=7, σ=1)",
+            "weight": 1.0,
+            "target": "max_gaussian",
+            "target_value": 7,
+            "sigma": 1
+        },
+        "tpsa": {
+            "description": "TPSA (MaxGaussian μ=95, σ=20)",
+            "weight": 1.0,
+            "target": "max_gaussian",
+            "target_value": 95,
+            "sigma": 20
+        },
+        "fluorine": {
+            "description": "氟原子计数 (Gaussian μ=1, σ=1)",
+            "weight": 1.0,
+            "target": "gaussian",
+            "target_value": 1,
+            "sigma": 1
+        }
+    },
+    
+    "output_dir": "../MultiResult/ranolazine_mpo_results",
+    
+    "comments": [
+        "Ranolazine MPO 任务来自 GuacaMol Benchmark (TDC)",
+        "目标分子: Ranolazine (抗心绞痛药物)",
+        "SMILES: COc1ccccc1OCC(O)CN2CCN(CC(=O)Nc3c(C)cccc3C)CC2",
+        "4个优化目标: 相似度(AP) + logP + TPSA + 氟原子",
+        "指纹类型: Atom Pair (不是 FCFP4)"
+    ],
+    
+    "ranolazine_smiles": "COc1ccccc1OCC(O)CN2CCN(CC(=O)Nc3c(C)cccc3C)CC2",
+    "target_logp": 7,
+    "target_tpsa": 95,
+    "target_fluorine": 1
+}

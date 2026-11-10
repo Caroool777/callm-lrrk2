@@ -1,0 +1,50 @@
+{
+    "task_name": "osimertinib_mpo",
+    "task_description": "Osimertinib 多属性优化 (Multi-Property Objective)",
+    
+    "seed": 42,
+    "max_oracle_calls": 10000,
+    "pop_size": 100,
+    "crossover_rate": 0.8,
+    "mutation_rate": 0.5,
+    
+    "initial_smiles_file": "../250k_rndm_zinc_drugs_clean_3.csv",
+    
+    "biot5_num_beams": 5,
+    "biot5_num_return_sequences": 3,
+    "biot5_temperature": 0.8,
+    "biot5_do_sample": true,
+    "biot5_elite_count": 10,
+    
+    "belief_capacity": 100,
+    "scaffold_threshold": 0.3,
+    "min_scaffold_samples": 2,
+    
+    "use_scaffold_constraint": true,
+    
+    "objectives": {
+        "similarity": {
+            "description": "与 Osimertinib 的 Tanimoto 相似度 (FCFP4)",
+            "weight": 1.0,
+            "target": "maximize"
+        },
+        "tpsa": {
+            "description": "TPSA (Topological Polar Surface Area) - MaxGaussian(100, 2)",
+            "weight": 1.0,
+            "target": "maximize",
+            "target_value": 100.0
+        },
+        "logp": {
+            "description": "logP - MinGaussian(1, 2)",
+            "weight": 1.0,
+            "target": "maximize",
+            "target_value": 1.0
+        }
+    },
+    
+    "output_dir": "../MultiResult/osimertinib_mpo_results",
+    "save_top_k": 10,
+    "save_pareto_front": true,
+    
+    "notes": "Osimertinib 是第三代 EGFR 酪氨酸激酶抑制剂，用于治疗 EGFR T790M 突变阳性的非小细胞肺癌。MPO 目标包括：相似度、TPSA 和 logP 优化。"
+}

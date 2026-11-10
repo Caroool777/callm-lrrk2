@@ -1,0 +1,51 @@
+{
+    "task_name": "amlodipine_mpo",
+    "task_description": "Amlodipine 多属性优化 (Multi-Property Objective)",
+    
+    "seed": 42,
+    "max_oracle_calls": 10000,
+    "pop_size": 100,
+    "crossover_rate": 0.8,
+    "mutation_rate": 0.5,
+    
+    "initial_smiles_file": "../250k_rndm_zinc_drugs_clean_3.csv",
+    
+    "biot5_num_beams": 5,
+    "biot5_num_return_sequences": 3,
+    "biot5_temperature": 0.8,
+    "biot5_do_sample": true,
+    "biot5_elite_count": 10,
+    
+    "belief_capacity": 100,
+    "scaffold_threshold": 0.3,
+    "min_scaffold_samples": 2,
+    
+    "use_scaffold_constraint": true,
+    
+    "objectives": {
+        "similarity": {
+            "description": "与 Amlodipine 的 Tanimoto 相似度 (ECFP4)",
+            "weight": 1.0,
+            "target": "maximize"
+        },
+        "rings": {
+            "description": "环数量匹配 (目标: 3 个环, Gaussian sigma=0.5)",
+            "weight": 1.0,
+            "target": "maximize"
+        }
+    },
+    
+    "output_dir": "../MultiResult/amlodipine_mpo_results",
+    
+    "comments": [
+        "Amlodipine MPO 任务来自 GuacaMol Benchmark",
+        "目标分子: Amlodipine (钙通道阻滞剂，用于治疗高血压和心绞痛)",
+        "SMILES: CCOC(=O)C1=C(COCCN)NC(C)=C(C1c1ccccc1Cl)C(=O)OC",
+        "目标环数量: 3 (使用 Gaussian(3, 0.5) 评估)",
+        "优化目标: 生成与 Amlodipine 相似且具有目标环数量的分子"
+    ],
+    
+    "amlodipine_smiles": "CCOC(=O)C1=C(COCCN)NC(C)=C(C1c1ccccc1Cl)C(=O)OC",
+    "target_num_rings": 3,
+    "target_num_rings_sigma": 0.5
+}

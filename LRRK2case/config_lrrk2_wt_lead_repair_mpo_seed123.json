@@ -1,0 +1,6 @@
+{
+  "seed": 123,
+  "stage1_seed_file": "../MultiResult/lrrk2_wt_activity_mpo_results_seed123/lrrk2_wt_activity_mpo_all_discovered_canonical.csv",
+  "require_stage1_seed_file": true,
+  "output_dir": "../MultiResult/lrrk2_wt_lead_repair_mpo_results_seed123_filtered_10000"
+}

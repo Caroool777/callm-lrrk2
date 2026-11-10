@@ -1,0 +1,7 @@
+{
+  "_comment": "QED 任务特定配置 (继承自 config.json)",
+  "_note": "QED (药物相似性) 分数范围 0-1，典型药物 QED > 0.6",
+  
+  "scaffold_threshold": 0.6,
+  "output_image_dir": "../SingleResult/qed_top_molecules"
+}

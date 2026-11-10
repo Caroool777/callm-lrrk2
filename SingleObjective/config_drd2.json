@@ -1,0 +1,14 @@
+{
+  "_comment": "DRD2 任务特定配置 (继承自 config.json)",
+  "_note": "DRD2 (多巴胺 D2 受体) 抑制剂优化 - 稀疏奖励任务",
+  
+  "_comment_sparse_reward": "=== DRD2 是稀疏奖励任务，大多数随机分子得分为 0 ===",
+  "_comment_solution": "解决方案: 1) 使用已知活性分子作为种子 2) 设置极低的阈值 3) 禁用骨架约束",
+  
+  "scaffold_threshold": 0.0,
+  "min_scaffold_samples": 1,
+  "initial_smiles_file": "drd2_seed_molecules.csv",
+  "use_scaffold_constraint": false,
+  "pop_size": 50,
+  "output_image_dir": "../SingleResult/drd2_top_molecules"
+}

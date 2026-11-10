@@ -1,0 +1,44 @@
+# CALLM - 文化算法分子优化项目 Conda 环境配置
+# 使用方法: conda env create -f environment.yml
+# 激活环境: conda activate callm
+
+name: callm
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  # Python 版本
+  - python=3.10
+  
+  # 科学计算
+  - numpy>=1.24.0
+  - pandas>=2.0.0
+  - scipy>=1.10.0
+  - scikit-learn>=1.2.0
+  - joblib>=1.2.0
+  - lightgbm>=4.0.0
+  - pyyaml>=6.0
+  
+  # 可视化
+  - matplotlib>=3.7.0
+  
+  # RDKit
+  - rdkit>=2023.3.1
+  
+  # 其他工具
+  - tqdm>=4.65.0
+  
+  # pip 安装的包
+  - pip
+  - pip:
+    # PyTorch (通过 pip 安装，自动匹配 CUDA)
+    - torch
+    - torchvision
+    - torchaudio
+    # Transformers (用于 BioT5)
+    - transformers>=4.30.0
+    # SELFIES 分子表示
+    - selfies>=2.1.1
+    # TDC (可选)
+    # - PyTDC>=0.4.0

@@ -1,0 +1,13 @@
+{
+    "task": "median2",
+    "max_generations": 100,
+    "population_size": 50,
+    "num_elites": 5,
+    "mutation_rate": 0.2,
+    "crossover_rate": 0.8,
+    "tournament_size": 3,
+    "scaffold_threshold": 0.3,
+    "early_stopping_patience": 20,
+    "early_stopping_min_delta": 0.001,
+    "output_image_dir": "../SingleResult/median2_top_molecules"
+}

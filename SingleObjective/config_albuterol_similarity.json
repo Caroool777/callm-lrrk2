@@ -1,0 +1,8 @@
+{
+  "_comment": "Albuterol Similarity 任务特定配置 (继承自 config.json)",
+  "_note": "Albuterol Similarity - 沙丁胺醇相似性任务，目标是生成与 Albuterol 结构相似的分子",
+  "_albuterol_smiles": "CC(C)(C)NCC(O)c1ccc(O)c(CO)c1",
+  
+  "scaffold_threshold": 0.5,
+  "output_image_dir": "../SingleResult/albuterol_similarity_top_molecules"
+}
